@@ -24,20 +24,23 @@ const index = () => {
 
   
   const [donateCampain,setDonateCampaign] = useState();
-
+  
 
   return (
     <div>
       <Hero titleData={titleData}  createCampaign={createCampaign} />
       {userCampaigns && userCampaigns.length > 0 && (
         <div>
-          <h2 className='text-black text-4xl font-mono text-center'>My Donation</h2>
+          <h2 className='text-black text-4xl font-mono text-center'>My CrowdFunding</h2>
           <Card allcampaign={userCampaigns} />
         </div>
       )}
       <div>
-      <h2 className='text-black text-4xl font-mono text-center'>All donation</h2>
-      <Card allcampaign={campaigns} />
+      <h2 className='text-black text-4xl font-mono text-center'>All CrowdFunding</h2>
+      <Card allcampaign={campaigns} donate={donate} />
+      </div>
+      <div>
+    
       </div>
     </div>
   )

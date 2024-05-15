@@ -82,9 +82,8 @@ export const CrowdFundingProvider = ({children}) => {
         return userData;
     }
     const donate = async (pId,amount)=>{
-        const web3modal = new Wenb3modal.connect();
-        const connection = await web3Modal.connect();
-        const provider = new ethers.providers.Web3Provider(connection);
+        
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
         const contract = fetchContract(signer);
 
