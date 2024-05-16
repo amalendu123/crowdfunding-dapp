@@ -10,6 +10,7 @@ const index = () => {
     getCampaigns,
     getUserCampaigns,
     donate,
+    currentAccount,
     getDonations,
   } = useContext(CrowdFundingContext);
   const [campaigns,setCampaigns] = useState();
@@ -17,8 +18,11 @@ const index = () => {
   useEffect(()=>{
     
     return async()=>{
-      setCampaigns(await getCampaigns());
-      setUserCampaigns(await getUserCampaigns());
+      if(currentAccount){
+        setCampaigns(await getCampaigns());
+        setUserCampaigns(await getUserCampaigns());
+      }
+      
     };
   },[]);
 
