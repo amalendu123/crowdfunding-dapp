@@ -39,8 +39,12 @@ const index = () => {
           <Card allcampaign={userCampaigns} />
         </div>
       )}
-      <div>
-      <h2 className='text-black text-4xl font-mono text-center'>All CrowdFunding</h2>
+      <div >
+      <div className='flex justify-between'>
+      <hr color='white ' className='w-1/4'></hr>
+      <h2 className=' text-4xl font-Poppins  text-white p-5 md:text-pretty text-center'>Latest Fund Raising Campaign </h2>
+      <hr color='white ' className='w-1/4'></hr>
+      </div>
       <Card allcampaign={campaigns} donate={donate} />
       </div>
       <div>

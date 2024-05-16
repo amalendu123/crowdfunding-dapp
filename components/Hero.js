@@ -43,8 +43,8 @@ const Hero = ({titledata,createCampaign}) => {
                     setCampaigns({...campaign,deadline:e.target.value});
                 }}
             />
-                <div className='w-40 h-12 bg-cyan-400 border-1 text-black rounded-md flex justify-center items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 '>
-                    <button className='' onClick={createCampaignHandler}>Create campaign</button>
+                <div className='w-40 h-12 bg-[#DFD0B8] font-Poppins border-1 font-normal text-black rounded-md flex justify-center items-center transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 '>
+                    <button className='' onClick={createCampaignHandler}>Create Campaign</button>
                 </div>
             </div>
         </div>
