@@ -27,9 +27,12 @@ const Card = ({ allcampaign,donate }) => {
                         <p>amount:{campaign.target} Eth</p>
                         <p>Raised:{campaign.amountCollected}</p>
                     </div>
-                    <div className='flex justify-center items-center'>
-                        <button className='border-1 bg-white w-full h-full text-black font-mono' onClick={() => getTheID(campaign)}>Donate</button>
-                    </div>
+                    {campaign.target==campaign.amountCollected? <div className='flex justify-center items-center'>
+                <button className='border-1 bg-white w-full h-full text-black font-mono' >Complete</button>
+            </div>:<div className='flex justify-center items-center'>
+            <button className='border-1 bg-white w-full h-full text-black font-mono' onClick={() => getTheID(campaign)}>Donate</button>
+        </div>}
+                   
                 </div>
             ))}
             {popup ? (
