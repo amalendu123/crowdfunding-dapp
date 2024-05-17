@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import {CrowdFundingContext} from "../Context/crowdfunding";
 import Card from '@/components/card';
 
-const index = () => {
+const Index = () => {
   const{
     titleData,
     createCampaign,
@@ -54,4 +54,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index;
