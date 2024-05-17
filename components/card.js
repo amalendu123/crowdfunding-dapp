@@ -18,19 +18,20 @@ const Card = ({ allcampaign,donate }) => {
     };
 
     return (
-        <div className='md:flex m-4 gap-10'>
+        <div className='flex justify-center items-center m-4 gap-10 flex-wrap'>
             {allcampaign?.map((campaign, index) => (
-                <div key={index} className='w-48 h-40 border-3 rounded  drop-shadow-2xl p-2 bg-black text-white flex-col justify-between items-end'>
+                <div key={index} className='w-64 h-58 border-3 rounded  drop-shadow-2xl p-2 bg-[#153448] text-white flex-col justify-between items-end font-Poppins'>
                     <div className='flex flex-col '>
-                        <h2 className='text-3xl'>{campaign.title}</h2>
-                        <p>{campaign.description}</p>
+                        <img src='https://as1.ftcdn.net/v2/jpg/01/91/78/32/1000_F_191783282_0TVrx5VrvrkpDHSKdjjI87HkbXJy5TMw.jpg' className='w-full h-1/2' />
+                        <h2 className='text-3xl line-clamp-1 font-bold'>{campaign.title}</h2>
+                        <p className='line-clamp-2'>{campaign.description}</p>
                         <p>amount:{campaign.target} Eth</p>
                         <p>Raised:{campaign.amountCollected}</p>
                     </div>
                     {campaign.target==campaign.amountCollected? <div className='flex justify-center items-center'>
-                <button className='border-1 bg-white w-full h-full text-black font-mono' >Complete</button>
+                <button className='border-1  w-full h-full text-black font-michroma font-semibold bg-[#948979]' >Complete</button>
             </div>:<div className='flex justify-center items-center'>
-            <button className='border-1 bg-white w-full h-full text-black font-mono' onClick={() => getTheID(campaign)}>Donate</button>
+            <button className='border-1  w-full h-full text-black font-michroma bg-[#948979]' onClick={() => getTheID(campaign)}>Donate</button>
         </div>}
                    
                 </div>

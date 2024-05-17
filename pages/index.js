@@ -18,10 +18,10 @@ const index = () => {
   useEffect(()=>{
     
     return async()=>{
-      if(currentAccount){
+    
         setCampaigns(await getCampaigns());
         setUserCampaigns(await getUserCampaigns());
-      }
+    
       
     };
   },[]);
