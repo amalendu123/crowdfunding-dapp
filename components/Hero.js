@@ -22,7 +22,7 @@ const Hero = ({titledata,createCampaign}) => {
         <div className='h-full w-full md:flex  justify-between '>
             <div className='flex flex-col justify-center items-center h-full text-white  md:w-1/2 p-5 font-Poppins'  >
                 <h1 className='font-bold  text-4xl text-left'>Create a Crowdfund</h1>
-                <p className='text-center text-lg'>Welcome to our donation platform where we merge the power of blockchain technology with philanthropy. With every donation, we're not just contributing; we're revolutionizing the way we give. Our transparent and secure system ensures that every penny you donate reaches its intended destination, making a real-world impact. Join us in embracing the future of charitable giving, where every contribution counts towards building a better tomorrow.</p>
+                <p className='text-center text-lg'>Welcome to our donation platform where we merge the power of blockchain technology with philanthropy. With every donation, we&apos;re not just contributing; we&apos;re revolutionizing the way we give. Our transparent and secure system ensures that every penny you donate reaches its intended destination, making a real-world impact. Join us in embracing the future of charitable giving, where every contribution counts towards building a better tomorrow.</p>
             </div>
             <div className='flex flex-col gap-4 md:w-1/2 justify-center items-center h-full p-4'>
                 <input type='text' className='rounded-2xl border-4 border-[#153448] w-full p-3 font-michroma' placeholder='Enter The Title ' onChange={(e)=>{
