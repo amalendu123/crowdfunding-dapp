@@ -1,10 +1,11 @@
 import Hero from '@/components/Hero'
 import React, { useContext, useEffect, useState } from 'react'
-import {CrowdFundingContext} from "../Context/crowdfunding";
+import { CrowdFundingContext } from "../Context/crowdfunding";
 import Card from '@/components/card';
 
+
 const Index = () => {
-  const{
+  const {
     titleData,
     createCampaign,
     getCampaigns,
@@ -13,45 +14,43 @@ const Index = () => {
     currentAccount,
     getDonations,
   } = useContext(CrowdFundingContext);
-  const [campaigns,setCampaigns] = useState();
-  const [userCampaigns,setUserCampaigns] = useState();
-  useEffect(()=>{
-    
-    return async()=>{
-    
-        setCampaigns(await getCampaigns());
-        setUserCampaigns(await getUserCampaigns());
-    
-      
-    };
-  },[]);
 
-  
-  const [donateCampain,setDonateCampaign] = useState();
-  
+  const [campaigns, setCampaigns] = useState([]);
+  const [userCampaigns, setUserCampaigns] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const campaignsData = await getCampaigns();
+      const userCampaignsData = await getUserCampaigns();
+      setCampaigns(campaignsData);
+      setUserCampaigns(userCampaignsData);
+    };
+    fetchData();
+  }, [getCampaigns, getUserCampaigns]);
+
+  const [donateCampaign, setDonateCampaign] = useState(null);
 
   return (
     <div>
-      <Hero titleData={titleData}  createCampaign={createCampaign} />
+      <Hero titleData={titleData} createCampaign={createCampaign} />
       {userCampaigns && userCampaigns.length > 0 && (
         <div>
           <h2 className='text-black text-4xl font-mono text-center'>My CrowdFunding</h2>
-          <Card allcampaign={userCampaigns} />
+          <Card allCampaign={userCampaigns} />
         </div>
       )}
-      <div >
-      <div className='flex justify-between'>
-      <hr color='white ' className='w-1/4'></hr>
-      <h2 className=' text-4xl font-Poppins  text-white p-5 md:text-pretty text-center'>Latest Fund Raising Campaign </h2>
-      <hr color='white ' className='w-1/4'></hr>
-      </div>
-      <Card allcampaign={campaigns} donate={donate} />
-      </div>
       <div>
-    
+        <div className='flex justify-between'>
+          <hr color='white ' className='w-1/4' />
+          <h2 className='text-4xl font-Poppins text-white p-5 md:text-pretty text-center'>
+            Latest Fund Raising Campaign
+          </h2>
+          <hr color='white ' className='w-1/4' />
+        </div>
+        <Card allCampaign={campaigns} donate={donate} />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Index;
