@@ -16,7 +16,7 @@ const Card = ({ allcampaign,donate }) => {
         setdata(campaign);
         setPopup(!popup);
     };
-
+    console.log("the campaign are"+allcampaign)
     return (
         <div className='flex justify-center items-center m-4 gap-10 flex-wrap'>
             {allcampaign?.map((campaign, index) => (
