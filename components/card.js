@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { IoCloseOutline } from "react-icons/io5";
+
 const Card = ({ allcampaign,donate }) => {
     const [popup, setPopup] = useState(false);
     const [data, setdata] = useState();
@@ -41,8 +41,8 @@ const Card = ({ allcampaign,donate }) => {
                     <div className='flex justify-between bg-white md:h-[500px] md:w-[1000px] border-4 border-sky-500 p-8'  style={{ opacity: popup ? 1 : 0, transform: popup ? 'translateY(0)' : 'translateY(-50px)' }}>
 
                         <div className='flex flex-col w-full '>
-                            <div className='flex justify-end w-full'>
-                                <IoCloseOutline size={20} onClick={() => setPopup(!popup)} className='pointer' />
+                            <div className='flex justify-end w-full text-3xl'>
+                                X
                             </div>
                             <div className='font-bold font-mono'>{data?.title}</div>
                             <div>{data?.description}</div>
