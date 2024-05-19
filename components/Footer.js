@@ -9,7 +9,7 @@ const Footer = () => {
                 <p className='text-sm break-words md:w-1/2 '>This is a web3 based crowdfunding website . The main aim of this website is to provide donation through the cyctocurrency. </p>
             </div>
             <div className='flex  gap-5 p-4'>
-                
+              
             </div>
         </div>
     </div>

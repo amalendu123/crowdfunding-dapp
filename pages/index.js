@@ -2,7 +2,7 @@ import Hero from '@/components/Hero'
 import React, { useContext, useEffect, useState } from 'react'
 import { CrowdFundingContext } from "../Context/crowdfunding";
 import Card from '@/components/card';
-
+import CancelIcon from '@material-ui/icons/Cancel';
 const Index = () => {
   const {
     titleData,
@@ -82,19 +82,19 @@ const Index = () => {
             ))}
             {popup ? (
                 <div className='transition-all duration-1000 ease-in fixed h-screen top-0 w-screen flex justify-center items-center  text-black p-20 overflow-y-hidden '>
-                    <div className='flex justify-between bg-white md:h-[500px] md:w-[1000px] border-4 border-sky-500 p-8'  style={{ opacity: popup ? 1 : 0, transform: popup ? 'translateY(0)' : 'translateY(-50px)' }}>
+                    <div className='md:flex flex-col gap-5 md:gap-0 justify-between bg-[#948979] md:h-[500px] md:w-[1000px] border-4 border-sky-500 p-8'  style={{ opacity: popup ? 1 : 0, transform: popup ? 'translateY(0)' : 'translateY(-50px)' }}>
 
                         <div className='flex flex-col w-full '>
                             <div className='flex justify-end w-full text-3xl'>
-                                X
+                                <CancelIcon onClick={()=>{setPopup(!popup)}}/>
                             </div>
                             <div className='font-bold font-mono'>{data?.title}</div>
                             <div>{data?.description}</div>
-                            <input type='text' className='rounded-2xl border-2 border-black w-full p-3' placeholder='Enter The amount ' onChange={(e)=>{
+                            <input type='text' className='rounded-2xl border-4 border-[#153448] w-full p-3 font-michroma' placeholder='Enter The amount ' onChange={(e)=>{
                                 setamount(e.target.value);
                             }}/>
                         </div>
-                        <div className=' flex justify-end items-end  '><button className="h-10 w-20 bg-cyan-950 text-white rounded-2xl" onClick={()=>{
+                        <div className=' flex md:justify-end md:items-end justify-center  '><button className="h-10 w-20 bg-[#DFD0B8] text-black rounded-3xl" onClick={()=>{
                             console.log(amount);
                             console.log(data.pId)
                             donate(data.pId,amount)}}>Donate</button></div>
