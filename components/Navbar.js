@@ -4,7 +4,7 @@ import WidgetsRoundedIcon from '@material-ui/icons/WidgetsRounded';
 
 const Navbar = () => {
   const { currentAccount, connectWallet } = useContext(CrowdFundingContext);
-
+  
   return (
     <div className='h-20 bg-[#153448]' style={{ fontFamily: "Poppins" }}>
       <div className='flex p-2 gap-10 h-full justify-between items-center'>
