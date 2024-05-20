@@ -12,11 +12,7 @@ export const CrowdFundingContext = React.createContext();
 export const CrowdFundingProvider = ({ children }) => {
     const titleData = "Crowd Funding Contract";
     const [currentAccount, setCurrentAccount] = useState("");
-    useEffect(() => {
-        if (currentAccount) {
-            console.log(currentAccount);
-        }
-    }, [currentAccount]);
+    const [alert,setalert] = useState(false);
     const createCampaign = async (campaign) => {
         const { title, description, amount, deadline } = campaign;
         const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -61,7 +57,7 @@ export const CrowdFundingProvider = ({ children }) => {
             }));
             return parsedCampaigns;
         }catch{
-            console.log("Install metamask");
+            setalert(true)
         }
        
     }
@@ -143,6 +139,7 @@ export const CrowdFundingProvider = ({ children }) => {
             }
         } catch (error) {
             console.log("Error:", error);
+            setalert(true)
         }
     }
     useEffect(() => {
@@ -151,17 +148,14 @@ export const CrowdFundingProvider = ({ children }) => {
 
     const connectWallet = async () => {
         try {
-            console.log("dlvj")
             if (!window.ethereum)
-                return console.log("Install MetaMask");
+                setalert(true);
             const accounts = await window.ethereum.request({
                 method: "eth_requestAccounts",
             });
             setCurrentAccount(accounts[0])
-            
-
         } catch (error) {
-            console.log("Install Metamask");
+            setalert(true)
         }
     }
     return (
@@ -174,6 +168,8 @@ export const CrowdFundingProvider = ({ children }) => {
                 donate,
                 getDonations,
                 connectWallet,
+                currentAccount,
+                alert
             }}
         >
             {children}

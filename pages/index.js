@@ -8,28 +8,29 @@ const Index = () => {
     titleData,
     createCampaign,
     getCampaigns,
-    getUserCampaigns,
     donate,
+    alert,
     currentAccount,
-    getDonations,
   } = useContext(CrowdFundingContext);
-
+  const [popup1,setpopup1] = useState(true);
   const [campaigns, setCampaigns] = useState([]);
   const [userCampaigns, setUserCampaigns] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const campaignsData = await getCampaigns();
-      const userCampaignsData = await getUserCampaigns();
       setCampaigns(campaignsData);
-      setUserCampaigns(userCampaignsData);
       console.log("Campaigns:", campaignsData);
-      console.log("User Campaigns:", userCampaignsData);
+      if(campaignsData === undefined){
+        setpopup1(true);
+        console.log("No METAMASK");
+      }else{
+        setpopup1(false)
+      }
     };
+   
     fetchData();
-  }, [getCampaigns, getUserCampaigns,currentAccount]);
-
-  const [donateCampaign, setDonateCampaign] = useState(null);
+  }, [currentAccount]);
   const [popup, setPopup] = useState(false);
   const [data, setdata] = useState();
   const [amount,setamount] = useState('');
@@ -39,12 +40,18 @@ const Index = () => {
       } else {
           document.body.style.overflow = 'unset';
       }
-  }, [popup]);
+      if(popup1){
+        document.body.style.overflow = 'hidden';
+      }else{
+        document.body.style.overflow = 'unset';
+      }
+  }, [popup,popup1]);
 
   const getTheID = (campaign) => {
       setdata(campaign);
       setPopup(!popup);
   };
+  
   return (
     <div>
       <Hero titleData={titleData} createCampaign={createCampaign} />
@@ -103,8 +110,20 @@ const Index = () => {
             ) : (
                 <></>
             )}
+            {
+              popup1?<>
+                <div className = "h-screen w-screen fixed font-michroma">
+                  <div className="flex justify-center items-center p-4">
+                    <div className="p-2 bg-red-400 h-20">
+                      <p className="break-words text-center">Please install metamask Or connect to the metamask</p>
+                    </div>
+                  </div>
+                </div>
+              </>:<></>
+            }
         </div>
       </div>
+      
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Navbar = () => {
           }}/>
           <h1 className='md:text-4xl text-2xl text-white'>WeCollect</h1>
         </div>
-        <div className='w-40 h-12 bg-[#DFD0B8] border-1 text-black rounded-md flex justify-center items-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 '>
+        <div className='w-fit p-2 h-12 bg-[#DFD0B8] border-1 text-black rounded-md flex justify-center items-center transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 '>
           <button className='' onClick={() => {
             connectWallet();
           }}>{currentAccount ? currentAccount : "Connect Wallet"}</button>
