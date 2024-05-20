@@ -27,7 +27,7 @@ const Index = () => {
       console.log("User Campaigns:", userCampaignsData);
     };
     fetchData();
-  }, [getCampaigns, getUserCampaigns]);
+  }, [getCampaigns, getUserCampaigns,currentAccount]);
 
   const [donateCampaign, setDonateCampaign] = useState(null);
   const [popup, setPopup] = useState(false);
@@ -94,7 +94,7 @@ const Index = () => {
                                 setamount(e.target.value);
                             }}/>
                         </div>
-                        <div className=' flex md:justify-end md:items-end justify-center  '><button className="h-10 w-20 bg-[#DFD0B8] text-black rounded-3xl" onClick={()=>{
+                        <div className=' flex md:justify-end md:items-end justify-center '><button className="h-10 w-20 bg-[#DFD0B8] text-black rounded-3xl" onClick={()=>{
                             console.log(amount);
                             console.log(data.pId)
                             donate(data.pId,amount)}}>Donate</button></div>
